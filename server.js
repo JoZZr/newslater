@@ -1,8 +1,6 @@
 var express = require("express");
 var bodyParser = require("body-parser");
-var allLabels = require("./models/read-labels.js");
-
-console.log(allLabels + ".");
+var list = require("./models/read-labels.js");
 
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -17,7 +15,8 @@ app.get("/", function(req, res) {
 
 //GET /labels
 app.get("/labels", function(req, res) {
-	res.send(allLabels);
+	console.log(list);
+	res.json(list);
 });
 
 //LISTEN TO REQUESTS
