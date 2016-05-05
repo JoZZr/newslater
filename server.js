@@ -15,8 +15,7 @@ app.get("/", function(req, res) {
 
 //GET /labels
 app.get("/labels", function(req, res) {
-	console.log(list);
-	res.json(list);
+	res.json(list());
 });
 
 //LISTEN TO REQUESTS
