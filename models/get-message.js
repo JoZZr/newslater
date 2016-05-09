@@ -55,9 +55,11 @@ var removeElements = function(response, callback) {
 	var body = parseMessage(response).textHtml;
 	var remove = [];
 
-	//REMOVE e-mail & ubsubscribe links
+	//REMOVE e-mail, ubsubscribe links & view in browser
 	remove.push(new RegExp("newslater.main@gmail.com", "g"));
 	remove.push(new RegExp("<a.*hier.*<\/a>", "g"));
+	remove.push(new RegExp("<a.*list-manage.com.*<\/a>", "g"));
+	remove.push(new RegExp("<a.*\.campaign-archive.*<\/a>", "g"));
 	//ZEIT.de
 	remove.push(new RegExp("<a.*newsletterversand\.zeit\.de.*<\/a>", "g"));
 
