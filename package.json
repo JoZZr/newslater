@@ -10,14 +10,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.15.0",
     "ejs": "^2.4.1",
     "express": "^4.13.4",
     "gmail-api-parse-message": "^1.0.5",
     "google-auth-library": "^0.9.7",
     "googleapis": "^5.2.1",
-    "request-promise": "^3.0.0",
-    "underscore": "^1.8.3",
-    "yargs": "^4.6.0"
+    "jsdom": "^9.0.0",
+    "pg": "^4.5.5",
+    "sequelize": "^3.23.0",
+    "underscore": "^1.8.3"
   }
 }
