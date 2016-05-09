@@ -16,6 +16,8 @@ var PORT = process.env.PORT || 3000;
 //ROUTE TO index.html
 app.use("/", express.static(__dirname + '/html'));
 
+app.use("/oauth", express.static(__dirname + '/oauth.js'));
+
 //GET all labels or specific label by label id
 app.get("/labels", cache(5), function(req, res) {
 	var query = req.query.id;
