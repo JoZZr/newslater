@@ -56,7 +56,7 @@ app.get("/message", cache(5), function(req, res) {
 		getMessage(queryId, queryType, queryInfo, function(message) {
 			if (queryInfo === "body") {
 				db.mostviewed.findOne({
-					whe: {
+					where: {
 						message_id: queryId
 					}
 				}).then(function(message) {
@@ -92,7 +92,7 @@ app.get("/message", cache(5), function(req, res) {
 app.get("/categories", cache(5), function(req, res) {
 	listLabels(function(items) {
 		res.json(_.where(items, {
-			category: true
+			provider: false
 		}));
 	});
 });
