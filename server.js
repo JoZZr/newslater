@@ -105,7 +105,9 @@ app.get("/mostviewed", function(req, res) {
 				gt: 1
 			}
 		},
-		order: "`overall_views` DESC",
+		order: [
+			["overall_views", "DESC"]
+		],
 		limit: 25
 	}).then(function(results) {
 		var filtered = [];
