@@ -58,9 +58,16 @@ var removeElements = function(response, callback) {
 	//REMOVE e-mail, ubsubscribe links & view in browser
 	remove.push(new RegExp("newslater.main@gmail.com", "g"));
 	remove.push(new RegExp("<a.*hier.*<\/a>", "g"));
-	remove.push(new RegExp("<a.*list-manage.com.*<\/a>", "g"));
+
+	//Mailchimp
 	remove.push(new RegExp("<a.*\.campaign-archive.*<\/a>", "g"));
-	//ZEIT.de
+	remove.push(new RegExp("<a.*list-manage.com.*<\/a>", "g"));
+	
+	//SecretEscapes.de
+	remove.push(new RegExp("<a.*.Verteilerliste.*<\/a>", "g"));
+	remove.push(new RegExp("<a.*.view.email.*<\/a>", "g"));
+
+	//Zeit.de
 	remove.push(new RegExp("<a.*newsletterversand\.zeit\.de.*<\/a>", "g"));
 
 	for (var i = 0; i < remove.length; i++) {

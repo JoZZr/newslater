@@ -32,7 +32,7 @@ app.get("/labels", cache(5), function(req, res) {
 });
 
 //GET all messages for specific label by label id
-app.get("/messages", function(req, res) {
+app.get("/messages", cache(5), function(req, res) {
 	var query = req.query.id;
 
 	if (typeof query === "undefined") {
@@ -89,10 +89,10 @@ app.get("/message", cache(5), function(req, res) {
 });
 
 //GET all category labels
-app.get("/categories", function(req, res) {
+app.get("/categories", cache(5), function(req, res) {
 	listLabels(function(items) {
 		res.json(_.where(items, {
-			provider: "category"
+			category: true
 		}));
 	});
 });
