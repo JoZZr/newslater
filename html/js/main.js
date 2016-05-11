@@ -78,7 +78,7 @@ var addBreadcrumbs = function() {
 		obj.labels.forEach(function(elem) {
 			$.getJSON("/labels", function(labels) {
 				labels.forEach(function(label) {
-					if (label.id === elem) {
+					if (label.id === elem && label.id !== "Label_6") {
 						dynamicBreadcrumbs.push($("<div class='breadcrumb'>" + label.label + "</div>"));
 					}
 				})
@@ -97,8 +97,10 @@ var addBreadcrumbs = function() {
 //Iframe resize
 function iframeLoaded() {
 	if (messageIframe) {
+		var windowHeight = window.height;
+		messageIframe.style.height = windowHeight;
 		messageIframe.addEventListener("load", function() {
-			messageIframe.style.height = "100%";
+			messageIframe.style.height = "0";
 			messageIframe.style.height = messageIframe.contentWindow.document.body.scrollHeight + "px";
 		});
 	}

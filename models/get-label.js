@@ -25,6 +25,6 @@ var getLabels = function(auth, query, callback) {
 			return response.status(404).send(err);
 		}
 
-		callback(_.pick(response, "name", "provider", "messagesTotal"));
+		callback(_.pick(response, "id", "messagesTotal"));
 	});
 };

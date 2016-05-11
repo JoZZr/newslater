@@ -2,6 +2,7 @@ var fs = require('fs');
 var google = require('googleapis');
 var authorize = require("./googleauth.js");
 var _ = require("underscore");
+var getLabels = require("./get-label.js");
 
 // Load client secrets from a local file.
 module.exports = function(callback) {
@@ -11,26 +12,6 @@ module.exports = function(callback) {
 		authorize(JSON.parse(content), function(auth) {
 			listLabels(auth, callback);
 		});
-	});
-};
-
-var matchLabelNames = function(response, callback) {
-	var providers = {
-		prefix: "Label_"
-	};
-
-	listLabels(function(items) {
-		items.forEach(function(item) {
-			if (item.provider === "category" && (/([\w &]+)$/).test(item.name)) {
-				providers[item.id.match(/\d+/)] = item.name.match(/([\w &]+)$/)[1];
-			} else if (item.provider === "category") {
-				providers[item.id.match(/\d+/)] = item.name;
-			} else {
-				providers[item.id.match(/\d+/)] = item.provider;
-			}
-		});
-
-		callback(response);
 	});
 };
 
@@ -57,8 +38,15 @@ var listLabels = function(auth, callback) {
 				} else {
 					currentObject.label = currentObject.name;
 				}
+				currentObject.messages = getLabels(currentObject.id.match(/\d+/), function(items) {
+					items.forEach(function(item) {
+						if (item.id === currentObject.id) {
+							return item.messagesTotal;
+						}
+					});
+				});
 
-				return _.pick(currentObject, "id", "label", "path", "provider");
+				return _.pick(currentObject, "id", "label", "path", "provider", "messages");
 			})
 			.value()
 		);
