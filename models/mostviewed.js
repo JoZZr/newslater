@@ -6,6 +6,14 @@ module.exports = function(sequelize, DataTypes) {
 			type: DataTypes.STRING,
 			defaultValue: false
 		},
+		name: {
+			type: DataTypes.STRING,
+			defaulValue: false
+		},
+		labels: {
+			type: DataTypes.STRING,
+			defaultValue: false
+		},
 		overall_views: {
 			type: DataTypes.INTEGER,
 			defaultValue: 1
@@ -14,7 +22,7 @@ module.exports = function(sequelize, DataTypes) {
 		instanceMethods: {
 			toPublicJSON: function() {
 				var json = this.toJSON();
-				return _.pick(json, "message_id", "overall_views");
+				return _.pick(json, "message_id", "name", "labels",  "overall_views");
 			}
 		}
 	});

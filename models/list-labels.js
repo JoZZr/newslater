@@ -38,13 +38,6 @@ var listLabels = function(auth, callback) {
 				} else {
 					currentObject.label = currentObject.name;
 				}
-				currentObject.messages = getLabels(currentObject.id.match(/\d+/), function(items) {
-					items.forEach(function(item) {
-						if (item.id === currentObject.id) {
-							return item.messagesTotal;
-						}
-					});
-				});
 
 				return _.pick(currentObject, "id", "label", "path", "provider", "messages");
 			})

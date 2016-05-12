@@ -62,7 +62,7 @@ var removeElements = function(response, callback) {
 	//Mailchimp
 	remove.push(new RegExp("<a.*\.campaign-archive.*<\/a>", "g"));
 	remove.push(new RegExp("<a.*list-manage.com.*<\/a>", "g"));
-	
+
 	//SecretEscapes.de
 	remove.push(new RegExp("<a.*.Verteilerliste.*<\/a>", "g"));
 	remove.push(new RegExp("<a.*.view.email.*<\/a>", "g"));
@@ -83,7 +83,7 @@ var getMessage = function(auth, queryId, queryType, queryInfo, callback) {
 		auth: auth,
 		userId: 'me',
 		id: queryId,
-		format: queryType
+		format: queryType || "full"
 	}, function(err, response) {
 		if (err) {
 			return "Mail not found";

@@ -8,6 +8,7 @@ var listLabels = require("./models/list-labels.js");
 var getLabels = require("./models/get-label.js");
 var listMessages = require("./models/list-messages.js");
 var getMessage = require("./models/get-message.js");
+var dbCall = require("./data/update.js");
 
 var app = express();
 var PORT = process.env.PORT || 3000;
@@ -47,7 +48,7 @@ app.get("/messages", cache(5), function(req, res) {
 //GET one message by message id; specify response and value and information requested
 app.get("/message", cache(5), function(req, res) {
 	var queryId = req.query.id;
-	var queryType = req.query.type || "full";
+	var queryType = req.query.type;
 	var queryInfo = req.query.info;
 
 	if (typeof queryId === "undefined") {
@@ -55,26 +56,7 @@ app.get("/message", cache(5), function(req, res) {
 	} else {
 		getMessage(queryId, queryType, queryInfo, function(message) {
 			if (queryInfo === "body") {
-				db.mostviewed.findOne({
-					where: {
-						message_id: queryId
-					}
-				}).then(function(message) {
-					if (message) {
-						var overall_views = message.overall_views;
-
-						message.update({
-							overall_views: ++overall_views
-						});
-					} else {
-						db.mostviewed.create({
-							message_id: queryId
-						});
-					}
-				}, function(e) {
-					console.error(e);
-				});
-
+				dbCall.mostviewed.refresh(queryId);
 				jsdom.env(
 					"", [""],
 					function(err, window) {
