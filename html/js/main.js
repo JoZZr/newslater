@@ -158,7 +158,7 @@ var displaySpecificMessage = function() {
 		return false;
 	}
 
-	$.getJSON("/messages?id=" + randomLabelId, function(obj) {
+	$.getJSON("/messages?id=" + $.url().param('q'), function(obj) {
 		var src = "/message?id=" + $.url().param('q') + "&info=body"
 		messageIframe.src = src;
 		iframeLoaded();
