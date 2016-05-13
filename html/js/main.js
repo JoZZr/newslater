@@ -13,7 +13,7 @@ $(document).ready(function() {
 	content.removeAttribute('style');
 });
 
-content.style.height = (windowHeight - 138) + "px";
+content.style.height = (windowHeight - 144) + "px";
 
 //Navigation dropdown menues
 navigationThemes.addEventListener("mouseenter", function() {
