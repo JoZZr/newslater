@@ -157,7 +157,7 @@ var displayMostviewed = function () {
 
 	if (!mostviewed) return false;
 
-	if (mostviewed.id === "overall") {
+	if (mostviewed.hasId("overall")) {
 		console.log(mostviewed);
 		mostviewed = $("#overall.mostviewed");
 		console.log(mostviewed);
