@@ -183,8 +183,7 @@ var displayMostviewed = function () {
 				for (var i = 0; i < items.length; i++) {
 					mostviewed.append(items[i]);
 				}
-			}
-			
+			});
 		});
 	}
 };
