@@ -180,8 +180,10 @@ var displayMostviewed = function () {
 					id = res[i].message_id;
 					
 					for (var j = 0; j < labels.length; j++) {
+						console.log(labels[i].id);
+						console.log(category.match(/Label_\d*$/));
 						if (labels[i].id === category.match(/Label_\d*$/)) {
-							category === labels[i].id;
+							category = labels[i].id;
 							break;
 						}
 					}
