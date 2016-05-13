@@ -98,11 +98,11 @@ var addBreadcrumbs = function() {
 function iframeLoaded() {
 	if (messageIframe) {
 		var windowHeight = window.height;
-		messageIframe.style.height = windowHeight;
 		messageIframe.addEventListener("load", function() {
 			messageIframe.style.height = "0";
 			messageIframe.style.height = messageIframe.contentWindow.document.body.scrollHeight + "px";
 		});
+		messageIframe.style.height = windowHeight;
 	}
 
 	addBreadcrumbs();
