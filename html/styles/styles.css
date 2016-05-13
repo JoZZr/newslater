@@ -200,6 +200,7 @@ iframe {
 
 .mostviewed ul li {
     margin-bottom: 3.5em;
+    position: relative;
 }
 
 .mostviewed li span:first-of-type {
@@ -225,6 +226,7 @@ iframe {
     color: #fff;
     padding: 0 .5em;
     position: absolute;
+    width: 100%;
 }
 #message {
     margin: 0 -7em -2em;
