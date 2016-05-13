@@ -31,7 +31,7 @@ navigationThemes.addEventListener("mouseout", function() {
 		navigationRemoveEffects();
 	});
 
-	var thisInterval = setInterval(function() {b
+	var thisInterval = setInterval(function() {
 		if (!dropdownHovered) {
 			if (dropdown) {
 				header.removeChild(dropdown);
