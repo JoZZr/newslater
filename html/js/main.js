@@ -178,4 +178,4 @@ var displayMostviewed = function () {
 		});
 	}
 };
-displaMostviewed(); 
+displayMostviewed(); 
