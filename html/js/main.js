@@ -199,7 +199,7 @@ var displayMostviewed = function () {
 							break;
 						}
 					}
-					console.log(labels);
+					
 					mostviewed.append($("<li><span>" + rank + "</span><span><a href='/message.html?id=" + id + "' title='" + title + "'>" + (title.length > 75 ? (title.substring(0, 75) + "...") : title) + "</a></span><span>" + category + "</span></li>"));
 				}
 			});
