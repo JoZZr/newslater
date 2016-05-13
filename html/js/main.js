@@ -181,6 +181,8 @@ var displayMostviewed = function () {
 					for (var j = 0; j < labels.length; j++) {
 						if (labels[i].id.toString() === category.match(/Label_\d*$/)[0].toString()) {
 							category = labels[i].label;
+							console.log("Match");
+							console.log(category);
 							break;
 						}
 					}
