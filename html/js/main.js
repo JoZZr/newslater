@@ -158,27 +158,31 @@ var displayMostviewed = function () {
 	if (!mostviewed) return false;
 
 	if (mostviewed.is("#overall")) {
-		console.log(mostviewed);
 		mostviewed = $("#overall.mostviewed");
-		console.log(mostviewed);
 		mostviewed.append("<ul></ul>");
-		console.log(mostviewed);
 		mostviewed = $("#overall.mostviewed ul");
-		console.log(mostviewed);
 		$.getJSON("/mostviewed", function(res) {
-			var rank, title, category, items = [];
-			
-			for (var i = 0; i < res.length; i++) {
-				rank = i + 1;
-				title = res[i].name;
-				category = res[i].labels;
-				id = res[i].message_id;
+			var rank, title, category, labels = [], items = [];
+			$.getJSON("/mostviewed", function(response) {
+				response.forEach(function(label) {
+					labels.push({
+						id: label.id,
+						name: label.label
+					});	
+				});
 				
-				items.push($("<li><span>" + rank + "</span><span>" + title + "</span><span>" + category + "</span></li>"));
-			}
-			console.log(mostviewed);
-			for (var i = 0; i < items.length; i++) {
-				mostviewed.append(items[i]);
+				console.log(labels);
+				for (var i = 0; i < res.length; i++) {
+					rank = i + 1;
+					title = res[i].name;
+					category = res[i].labels;
+					id = res[i].message_id;
+					
+					items.push($("<li><span>" + rank + "</span><span>" + title + "</span><span>" + category + "</span></li>"));
+				}
+				for (var i = 0; i < items.length; i++) {
+					mostviewed.append(items[i]);
+				}
 			}
 			
 		});
