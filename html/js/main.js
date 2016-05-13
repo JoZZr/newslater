@@ -232,7 +232,7 @@ var displayCategory = function () {
 					name: label.label
 				});
 			});
-			
+			console.log(res);
 			for (var i = 0; i < res.length; i++) {
 				$.getJSON("/message" + res[i].id, function(message) {
 					console.log(message);
