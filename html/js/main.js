@@ -158,8 +158,8 @@ var displaySpecificMessage = function() {
 		return false;
 	}
 
-	$.getJSON("/messages?id=" + $.url().param('q'), function(obj) {
-		var src = "/message?id=" + $.url().param('q') + "&info=body"
+	$.getJSON("/messages" + location.search, function(obj) {
+		var src = "/message" + location.search + "&info=body"
 		messageIframe.src = src;
 		iframeLoaded();
 		history.replaceState({}, 'some title', '/message.html');
@@ -200,7 +200,7 @@ var displayMostviewed = function () {
 						}
 					}
 					console.log(labels);
-					mostviewed.append($("<li><span>" + rank + "</span><span><a href='/message.html?q=" + id + "' title='" + title + "'>" + (title.length > 75 ? (title.substring(0, 75) + "...") : title) + "</a></span><span>" + category + "</span></li>"));
+					mostviewed.append($("<li><span>" + rank + "</span><span><a href='/message.html?id=" + id + "' title='" + title + "'>" + (title.length > 75 ? (title.substring(0, 75) + "...") : title) + "</a></span><span>" + category + "</span></li>"));
 				}
 			});
 		});
