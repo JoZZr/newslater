@@ -148,8 +148,25 @@ var displayRandomMessage = function() {
 		});
 	});
 };
-
 displayRandomMessage();
+
+var displayRandomMessage = function() {
+	if (!messageIframe) {
+		return false;
+	}
+	if (!messageIframe.classList.contains("specific")) {
+		return false;
+	}
+
+	$.getJSON("/messages?id=" + randomLabelId, function(obj) {
+			var src = "/message?id=" + $.url().param('q') + "&info=body"
+			messageIframe.src = src;
+			iframeLoaded();
+			history.replaceState({}, 'some title', '/message.html');
+		});
+	});
+};
+displaySpecificMessage();
 
 
 var displayMostviewed = function () {
@@ -184,7 +201,7 @@ var displayMostviewed = function () {
 						}
 					}
 					console.log(labels);
-					mostviewed.append($("<li><span>" + rank + "</span><span><a href='/message?id=" + id + "&info=body' title='" + title + "'>" + (title.length > 75 ? (title.substring(0, 75) + "...") : title) + "</a></span><span>" + category + "</span></li>"));
+					mostviewed.append($("<li><span>" + rank + "</span><span><a href='/message.html?q=" + id + "' title='" + title + "'>" + (title.length > 75 ? (title.substring(0, 75) + "...") : title) + "</a></span><span>" + category + "</span></li>"));
 				}
 			});
 		});
