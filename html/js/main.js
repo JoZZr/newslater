@@ -162,7 +162,7 @@ var displayMostviewed = function () {
 		mostviewed.append("<ul></ul>");
 		mostviewed = $("#overall.mostviewed ul");
 		$.getJSON("/mostviewed", function(res) {
-			var rank, title, category, labels = [], items = [];
+			var rank, title, category, labels = [];
 			$.getJSON("/labels", function(response) {
 				console.log(response);
 				response.forEach(function(label) {
@@ -181,17 +181,14 @@ var displayMostviewed = function () {
 					
 					for (var j = 0; j < labels.length; j++) {
 						console.log(labels[i].id);
-						console.log(category.match(/Label_\d*$/));
-						if (labels[i].id === category.match(/Label_\d*$/)[0]) {
+						console.log(category.match(/Label_\d*$/)[0]);
+						if (labels[i].id.toString() === category.match(/Label_\d*$/)[0].toString()) {
 							category = labels[i].id;
 							break;
 						}
 					}
 					
-					items.push($("<li><span>" + rank + "</span><span>" + title + "</span><span>" + category + "</span></li>"));
-				}
-				for (var i = 0; i < items.length; i++) {
-					mostviewed.append(items[i]);
+					mostviewd.append($("<li><span>" + rank + "</span><span>" + title + "</span><span>" + category + "</span></li>"));
 				}
 			});
 		});
