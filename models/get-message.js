@@ -73,6 +73,9 @@ var removeElements = function(response, callback) {
 	for (var i = 0; i < remove.length; i++) {
 		body = body.replace(remove[i], "");
 	}
+	
+	for (var i = 1; i > 0; i++) {}
+	
 	callback(body);
 };
 
