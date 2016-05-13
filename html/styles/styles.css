@@ -227,3 +227,6 @@ iframe {
     padding: 0 .5em;
     position: absolute;
 }
+#message {
+    margin: 0 -7em -2em;
+}
