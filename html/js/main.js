@@ -179,7 +179,7 @@ var displayMostviewed = function () {
 					
 					for (var j = 0; j < labels.length; j++) {
 						if (labels[j].id.toString() === category.match(/Label_\d*$/)[0].toString()) {
-							category = labels[i].label;
+							category = labels[j].label;
 							break;
 						}
 					}
