@@ -150,7 +150,7 @@ var displayRandomMessage = function() {
 };
 displayRandomMessage();
 
-var displayRandomMessage = function() {
+var displaySpecificMessage = function() {
 	if (!messageIframe) {
 		return false;
 	}
@@ -159,11 +159,10 @@ var displayRandomMessage = function() {
 	}
 
 	$.getJSON("/messages?id=" + randomLabelId, function(obj) {
-			var src = "/message?id=" + $.url().param('q') + "&info=body"
-			messageIframe.src = src;
-			iframeLoaded();
-			history.replaceState({}, 'some title', '/message.html');
-		});
+		var src = "/message?id=" + $.url().param('q') + "&info=body"
+		messageIframe.src = src;
+		iframeLoaded();
+		history.replaceState({}, 'some title', '/message.html');
 	});
 };
 displaySpecificMessage();
