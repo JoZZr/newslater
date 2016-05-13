@@ -175,4 +175,4 @@ var displayMostviewed = function () {
 		});
 	}
 };
-displayRandomMessage();
+displayRandomMessage(); 
