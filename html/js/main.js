@@ -172,7 +172,6 @@ var displayMostviewed = function () {
 					});
 				});
 				
-				console.log(labels);
 				for (var i = 0; i < res.length; i++) {
 					rank = i + 1;
 					title = res[i].name;
@@ -180,9 +179,8 @@ var displayMostviewed = function () {
 					id = res[i].message_id;
 					
 					for (var j = 0; j < labels.length; j++) {
-						console.log(category.match(/Label_\d*$/)[0].toString());
 						if (labels[i].id.toString() === category.match(/Label_\d*$/)[0].toString()) {
-							category = labels[i].id;
+							category = labels[i].label;
 							break;
 						}
 					}
