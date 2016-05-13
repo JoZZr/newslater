@@ -188,7 +188,7 @@ var displayMostviewed = function () {
 						}
 					}
 					
-					mostviewd.append($("<li><span>" + rank + "</span><span>" + title + "</span><span>" + category + "</span></li>"));
+					mostviewed.append($("<li><span>" + rank + "</span><span>" + title + "</span><span>" + category + "</span></li>"));
 				}
 			});
 		});
