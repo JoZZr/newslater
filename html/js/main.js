@@ -168,7 +168,7 @@ var displayMostviewed = function () {
 				category = res[i].labels;
 				id = res[i].message_id;
 				
-				items.push($("<li><span>" + rank + "</span><span>" + category + "</span><span>" + title + "</span></li>"));
+				items.push($("<li><span>" + rank + "</span><span>" + title + "</span><span>" + category + "</span></li>"));
 			}
 			items.unshift("<ul>")
 			items.push("</ul>");
