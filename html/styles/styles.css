@@ -236,3 +236,6 @@ iframe {
 .mostviewed a:hover {
     color: #666;
 }
+#overall {
+    margin-top: 2.5em;
+}
