@@ -164,7 +164,6 @@ var displayMostviewed = function () {
 		$.getJSON("/mostviewed", function(res) {
 			var rank, title, category, labels = [];
 			$.getJSON("/labels", function(response) {
-				console.log(response);
 				response.forEach(function(label) {
 					labels.push({
 						id: label.id,
@@ -179,9 +178,7 @@ var displayMostviewed = function () {
 					id = res[i].message_id;
 					
 					for (var j = 0; j < labels.length; j++) {
-						console.log("-- LABEL --" + labels[i].id.toString());
-						console.log("-- CATEGORY --" + category.match(/Label_\d*$/)[0].toString());
-						if (labels[i].id.toString() === category.match(/Label_\d*$/)[0].toString()) {
+						if (labels[j].id.toString() === category.match(/Label_\d*$/)[0].toString()) {
 							category = labels[i].label;
 							break;
 						}
