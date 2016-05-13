@@ -97,7 +97,7 @@ var addBreadcrumbs = function() {
 //Iframe resize
 function iframeLoaded() {
 	if (messageIframe) {
-		var windowHeight = window.height;
+		var windowHeight = window.innerHeight;
 		messageIframe.addEventListener("load", function() {
 			messageIframe.style.height = "0";
 			messageIframe.style.height = messageIframe.contentWindow.document.body.scrollHeight + "px";
