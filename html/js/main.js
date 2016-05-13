@@ -6,6 +6,10 @@ var navigationThemes = navigationLinks[3];
 var logo = document.getElementById("logo");
 var paralaxImage = document.querySelectorAll(".paralaxImage");
 var messageIframe = document.querySelector("#message iframe");
+var content = document.getElementById("content");
+var windowHeight = window.innerHeight;
+
+content.style.height = windowHeight;
 
 //Navigation dropdown menues
 navigationThemes.addEventListener("mouseenter", function() {
@@ -97,8 +101,6 @@ var addBreadcrumbs = function() {
 //Iframe resize
 function iframeLoaded() {
 	if (messageIframe) {
-		var windowHeight = window.innerHeight;
-		messageIframe.style.height = windowHeight;
 		messageIframe.addEventListener("load", function() {
 			messageIframe.style.height = "0";
 			messageIframe.style.height = messageIframe.contentWindow.document.body.scrollHeight + "px";
