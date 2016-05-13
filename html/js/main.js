@@ -163,7 +163,7 @@ var displayMostviewed = function () {
 		mostviewed = $("#overall.mostviewed ul");
 		$.getJSON("/mostviewed", function(res) {
 			var rank, title, category, labels = [], items = [];
-			$.getJSON("/mostviewed", function(response) {
+			$.getJSON("/labels", function(response) {
 				console.log(response);
 				response.forEach(function(label) {
 					console.log(label);
