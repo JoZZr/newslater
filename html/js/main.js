@@ -153,12 +153,13 @@ displayRandomMessage();
 
 
 var displayMostviewed = function () {
-	var mostviewed = document.querySelector(".mostviewed");
+	var mostviewed = $(".mostviewed");
 
 	if (!mostviewed) return false;
 
 	if (mostviewed.id === "overall") {
-		mostviewed = $("#overall.mostviewed");
+		mostviewed.append("<ul></ul>");
+		mostviewed = $("#overall.mostviewed ul");
 		$.getJSON("/mostviewed", function(res) {
 			var rank, title, category, items = [];
 			
@@ -170,8 +171,6 @@ var displayMostviewed = function () {
 				
 				items.push($("<li><span>" + rank + "</span><span>" + title + "</span><span>" + category + "</span></li>"));
 			}
-			items.unshift("<ul>")
-			items.push("</ul>");
 			console.log(mostviewed);
 			for (var i = 0; i < items.length; i++) {
 				mostviewed.append(items[i]);
