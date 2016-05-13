@@ -166,7 +166,6 @@ var displayMostviewed = function () {
 			$.getJSON("/labels", function(response) {
 				console.log(response);
 				response.forEach(function(label) {
-					console.log(label);
 					labels.push({
 						id: label.id,
 						name: label.label
@@ -179,6 +178,13 @@ var displayMostviewed = function () {
 					title = res[i].name;
 					category = res[i].labels;
 					id = res[i].message_id;
+					
+					for (var j = 0; j < labels.length; j++) {
+						if (labels[i].id === category.match(/Label_\d*$/)) {
+							category === labels[i].id;
+							break;
+						}
+					}
 					
 					items.push($("<li><span>" + rank + "</span><span>" + title + "</span><span>" + category + "</span></li>"));
 				}
