@@ -160,6 +160,7 @@ var displayMostviewed = function () {
 	if (mostviewed.id === "overall") {
 		mostviewed.append("<ul></ul>");
 		mostviewed = $("#overall.mostviewed ul");
+		console.log(mostviewed);
 		$.getJSON("/mostviewed", function(res) {
 			var rank, title, category, items = [];
 			
