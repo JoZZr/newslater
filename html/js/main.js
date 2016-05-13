@@ -9,6 +9,10 @@ var messageIframe = document.querySelector("#message iframe");
 var content = document.getElementById("content");
 var windowHeight = window.innerHeight;
 
+$(document).ready(function() {
+	content.removeAttribute('style');
+});
+
 content.style.height = (windowHeight - 138) + "px";
 
 //Navigation dropdown menues
