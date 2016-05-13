@@ -31,7 +31,7 @@ navigationThemes.addEventListener("mouseout", function() {
 		navigationRemoveEffects();
 	});
 
-	var thisInterval = setInterval(function() {
+	var thisInterval = setInterval(function() {b
 		if (!dropdownHovered) {
 			if (dropdown) {
 				header.removeChild(dropdown);
@@ -184,7 +184,7 @@ var displayMostviewed = function () {
 						}
 					}
 					console.log(labels);
-					mostviewed.append($("<li><span>" + rank + "</span><span><a href='/message?id=" + id + "?info=body' title='" + title + "'>" + (title.length > 75 ? (title.substring(0, 75) + "...") : title) + "</a></span><span>" + category + "</span></li>"));
+					mostviewed.append($("<li><span>" + rank + "</span><span><a href='/message?id=" + id + "&info=body' title='" + title + "'>" + (title.length > 75 ? (title.substring(0, 75) + "...") : title) + "</a></span><span>" + category + "</span></li>"));
 				}
 			});
 		});
