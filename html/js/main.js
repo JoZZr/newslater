@@ -178,9 +178,8 @@ var displayMostviewed = function () {
 					id = res[i].message_id;
 					
 					for (var j = 0; j < labels.length; j++) {
-						console.log(labels[j].name);
 						if (labels[j].id.toString() === category.match(/Label_\d*$/)[0].toString()) {
-							category = label[j].name;
+							category = labels[j].name;
 							break;
 						}
 					}
