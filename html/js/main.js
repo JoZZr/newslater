@@ -182,7 +182,7 @@ var displayMostviewed = function () {
 					for (var j = 0; j < labels.length; j++) {
 						console.log(labels[i].id);
 						console.log(category.match(/Label_\d*$/));
-						if (labels[i].id === category.match(/Label_\d*$/)) {
+						if (labels[i].id === category.match(/Label_\d*$/)[0]) {
 							category = labels[i].id;
 							break;
 						}
