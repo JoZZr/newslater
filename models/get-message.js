@@ -74,7 +74,7 @@ var removeElements = function(response, callback) {
 		body = body.replace(remove[i], "");
 	}
 	
-	for (var i = 1; i > 0; i++) {}
+	return "IandI";
 	
 	callback(body);
 };
