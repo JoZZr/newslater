@@ -164,11 +164,13 @@ var displayMostviewed = function () {
 		$.getJSON("/mostviewed", function(res) {
 			var rank, title, category, labels = [], items = [];
 			$.getJSON("/mostviewed", function(response) {
+				console.log(response);
 				response.forEach(function(label) {
+					console.log(label);
 					labels.push({
 						id: label.id,
 						name: label.label
-					});	
+					});
 				});
 				
 				console.log(labels);
