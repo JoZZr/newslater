@@ -104,6 +104,7 @@ function iframeLoaded() {
 		messageIframe.addEventListener("load", function() {
 			messageIframe.style.height = "0";
 			messageIframe.style.height = messageIframe.contentWindow.document.body.scrollHeight + "px";
+			content.removeAttribute('style');
 		});
 	}
 
