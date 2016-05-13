@@ -9,10 +9,6 @@ var messageIframe = document.querySelector("#message iframe");
 var content = document.getElementById("content");
 var windowHeight = window.innerHeight;
 
-$(document).ready(function() {
-	content.removeAttribute('style');
-});
-
 content.style.height = (windowHeight - 144) + "px";
 
 //Navigation dropdown menues
@@ -174,6 +170,9 @@ var displaySpecificMessage = function() {
 };
 displaySpecificMessage();
 
+var adjustFooterPosition = function() {
+	content.removeAttribute('style');
+};
 
 var displayMostviewed = function () {
 	var mostviewed = $(".mostviewed");
@@ -209,8 +208,57 @@ var displayMostviewed = function () {
 					
 					mostviewed.append($("<li><span>" + rank + "</span><span><a href='/message.html?id=" + id + "' title='" + title + "'>" + (title.length > 75 ? (title.substring(0, 75) + "...") : title) + "</a></span><span>" + category + "</span></li>"));
 				}
+				
+				adjustFooterPosition();
 			});
 		});
 	}
 };
-displayMostviewed(); 
+displayMostviewed();
+
+
+var displayCategory = function () {
+	var category = $("#category");
+
+	if (!category) return false;
+
+	if (category.is("#overall")) {
+		category.append("<ul></ul>");
+		category = $("#category ul");
+		$.getJSON("/messages" + location.search, function(res) {
+			var rank, title, labels = [];
+			$.getJSON("/labels", function(response) {
+				response.forEach(function(label) {
+					labels.push({
+						id: label.id,
+						name: label.label
+					});
+				});
+				
+				for (var i = 0; i < res.length; i++) {
+					$.getJSON("/message" + res[i].id, function(message) {
+						console.log(message);
+					});
+					/*
+					rank = i + 1;
+					title = res[i].name;
+					category = res[i].labels;
+					id = res[i].message_id;
+					
+					for (var j = 0; j < labels.length; j++) {
+						if (labels[j].id.toString() === category.match(/Label_\d*$/)[0].toString()) {
+							category = labels[j].name;
+							break;
+						}
+					}
+					*/
+					
+				//	category.append($("<li><span>" + rank + "</span><span><a href='/message.html?id=" + id + "' title='" + title + "'>" + (title.length > 75 ? (title.substring(0, 75) + "...") : title) + "</a></span><span></span></li>"));
+				}
+				
+				adjustFooterPosition();
+			});
+		});
+	}
+};
+displayCategory(); 
