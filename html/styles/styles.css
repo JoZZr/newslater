@@ -230,3 +230,10 @@ iframe {
 #message {
     margin: 0 -7em -2em;
 }
+.mostviewed a {
+    text-decoration: none;
+    color: #222;
+}
+.mostviewed a:hover {
+    color: #666;
+}
