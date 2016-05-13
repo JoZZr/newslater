@@ -179,10 +179,10 @@ var displayMostviewed = function () {
 					id = res[i].message_id;
 					
 					for (var j = 0; j < labels.length; j++) {
+						console.log("-- LABEL --" + labels[i].id.toString());
+						console.log("-- CATEGORY --" + category.match(/Label_\d*$/)[0].toString());
 						if (labels[i].id.toString() === category.match(/Label_\d*$/)[0].toString()) {
 							category = labels[i].label;
-							console.log("Match");
-							console.log(category);
 							break;
 						}
 					}
