@@ -184,7 +184,7 @@ var displayMostviewed = function () {
 						}
 					}
 					
-					mostviewed.append($("<li><span>" + rank + "</span><span>" + title.length > 75 ? title.substring(0, 75) + "..." : title + "</span><span>" + category + "</span></li>"));
+					mostviewed.append($("<li><span>" + rank + "</span><span><a href='/messae?id=" + id + "'>" + title.length > 75 ? title.substring(0, 75) + "..." : title + "</span><span>" + category + "</span></li>"));
 				}
 			});
 		});
