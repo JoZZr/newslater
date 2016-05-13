@@ -178,14 +178,14 @@ var displayMostviewed = function () {
 					id = res[i].message_id;
 					
 					for (var j = 0; j < labels.length; j++) {
-						console.log(labels[j].label);
+						console.log(labels[j].name);
 						if (labels[j].id.toString() === category.match(/Label_\d*$/)[0].toString()) {
-							category = labels[j].label;
+							category = label[j].name;
 							break;
 						}
 					}
-					
-					mostviewed.append($("<li><span>" + rank + "</span><span><a href='/messae?id=" + id + "' title='" + title + "'>" + (title.length > 75 ? (title.substring(0, 75) + "...") : title) + "</a></span><span>" + category + "</span></li>"));
+					console.log(labels);
+					mostviewed.append($("<li><span>" + rank + "</span><span><a href='/message?id=" + id + "?info=body' title='" + title + "'>" + (title.length > 75 ? (title.substring(0, 75) + "...") : title) + "</a></span><span>" + category + "</span></li>"));
 				}
 			});
 		});
