@@ -158,12 +158,12 @@ var displayMostviewed = function () {
 	if (!mostviewed) return false;
 
 	if (mostviewed.id === "overall") {
-		mostviewed = document.querySelector("#overall.mostviewed");
+		mostviewed = $("#overall.mostviewed");
 		$.getJSON("/mostviewed", function(res) {
 			var rank, title, category, items = [];
 			
 			for (var i = 0; i < res.length; i++) {
-				rank = i;
+				rank = i + 1;
 				title = res[i].name;
 				category = res[i].labels;
 				id = res[i].message_id;
@@ -172,10 +172,10 @@ var displayMostviewed = function () {
 			}
 			items.unshift("<ul>")
 			items.push("</ul>");
-			console.log(items);
 			for (var i = 0; i < items.length; i++) {
 				mostviewed.append(items[i]);
 			}
+			console.log(mostviewed);
 		});
 	}
 };
