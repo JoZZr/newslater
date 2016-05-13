@@ -172,7 +172,8 @@ var displayMostviewed = function () {
 			}
 			items.unshift("<ul>")
 			items.push("</ul>");
-			for (var i = 0; i < mostviewed.length; i++) {
+			console.log(items);
+			for (var i = 0; i < items.length; i++) {
 				mostviewed.append(items[i]);
 			}
 		});
