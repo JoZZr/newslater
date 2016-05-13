@@ -110,6 +110,9 @@ function iframeLoaded() {
 
 //Random message display
 var displayRandomMessage = function() {
+	if (!messageIframe) {
+		return false;
+	}
 	if (!messageIframe.classList.contains("random")) {
 		return false;
 	}
@@ -175,4 +178,4 @@ var displayMostviewed = function () {
 		});
 	}
 };
-displayRandomMessage(); 
+displaMostviewed(); 
